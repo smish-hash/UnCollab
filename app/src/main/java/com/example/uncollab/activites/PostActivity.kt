@@ -6,10 +6,14 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import com.example.uncollab.R
 import com.example.uncollab.Util.*
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_post.*
@@ -45,8 +49,19 @@ class PostActivity : AppCompatActivity() {
             addImage()
         }
 
+        setTextChangeListener(postText, postTextTIL)
+
         fabSend.setOnClickListener {
-            onPost()
+            if (postText.text.toString().isNullOrEmpty()){
+                postTextTIL.error = "Cannot be blank"
+                postTextTIL.isErrorEnabled = true
+            }else{
+                onPost()
+            }
+        }
+
+        btnBackPost.setOnClickListener {
+            onBackPressed()
         }
 
         postProgressLayout.setOnTouchListener { v, event -> true }
@@ -138,5 +153,21 @@ class PostActivity : AppCompatActivity() {
             intent.putExtra(PARAM_USER_EMAIL, email)
             return intent
         }
+    }
+
+    //    To not keep showing the error message continuously
+    fun setTextChangeListener(et: EditText, til: TextInputLayout) {
+        et.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                til.isErrorEnabled = false
+//                removes the error the moment something is typed again
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+        })
     }
 }

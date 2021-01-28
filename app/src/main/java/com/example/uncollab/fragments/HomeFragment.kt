@@ -1,16 +1,16 @@
 package com.example.uncollab.fragments
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DividerItemDecoration
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uncollab.R
 import com.example.uncollab.Util.DATA_POSTS
 import com.example.uncollab.Util.Post
 import com.example.uncollab.adapters.PostListAdapter
+import com.example.uncollab.listeners.PostListenerImpl
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : PostFragment() {
@@ -20,23 +20,23 @@ class HomeFragment : PostFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view  = inflater.inflate(R.layout.fragment_home, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        listener = PostListenerImpl(postList, currentUser, callback)
 
         postAdapter = PostListAdapter(userId!!, arrayListOf())
+        postAdapter?.setListener(listener)
         postList?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = postAdapter
-            addItemDecoration(
-                DividerItemDecoration(
-                    context, DividerItemDecoration.VERTICAL
-                )
-            )
         }
+
+        Toast.makeText(context, "Swipe down to refresh", Toast.LENGTH_LONG).show()
 
         swipeRefresh.setOnRefreshListener {
             swipeRefresh.isRefreshing = false

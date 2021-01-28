@@ -50,6 +50,10 @@ class ProfileActivity : AppCompatActivity() {
         signoutButton.setOnClickListener {
             onSignOut()
         }
+
+        btnBackPost.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun populateInfo() {

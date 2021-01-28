@@ -6,15 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".activites.PostActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarPost"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#E8F4F3"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btnBackPost"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Create Post"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/btnBackPost"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:id="@+id/postTextTIL"
         android:layout_width="match_parent"
-        android:layout_marginTop="64dp"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/grid_2x"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="@dimen/grid_4x"
+        app:layout_constraintTop_toBottomOf="@id/appBarPost">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/postText"
@@ -27,7 +65,7 @@
     <ImageView
         android:id="@+id/tweetImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="255dp"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
@@ -42,11 +80,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/grid_3x"
-        android:rotation="-33"
+        android:rotation="-35"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_send_24"
         android:backgroundTint="@color/teal_700"
+        android:contentDescription="Post"
         app:tint="#fff" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,6 +96,7 @@
         app:layout_constraintBottom_toTopOf="@+id/fabSend"
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/ipsit_green"
+        android:contentDescription="Add Image"
         app:fabSize="mini"
         app:srcCompat="@drawable/ic_baseline_linked_camera_24"
         app:tint="#fff" />

@@ -6,54 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".activites.ProfileActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarPost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#E8F4F3"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btnBackPost"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Edit Profile"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/btnBackPost"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarPost">
 
         <RelativeLayout
             android:id="@+id/profileLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/grid_4x"
-            android:layout_marginBottom="@dimen/grid_3x"
             android:gravity="center_horizontal">
 
             <ImageView
-                android:layout_marginTop="50dp"
                 android:id="@+id/photoIV"
                 android:layout_width="@dimen/standard_width"
-                android:layout_height="@dimen/standard_width"
-                android:layout_marginBottom="@dimen/grid_2x"
+                android:layout_height="255dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="30dp"
+                android:background="#E8F4F3"
                 android:src="@drawable/avatar_1"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/photoIV"
+                android:layout_alignBottom="@id/photoIV"
+                android:layout_margin="@dimen/grid_2x"
+                android:src="@drawable/ic_baseline_linked_camera_24" />
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/usernameTIL"
                 android:layout_width="@dimen/standard_width"
-                android:layout_marginTop="32dp"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/grid_2x"
-                android:layout_below="@id/photoIV">
+                android:layout_below="@id/photoIV"
+                android:layout_marginTop="30dp"
+                android:paddingBottom="@dimen/grid_2x">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/usernameET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"/>
+                    android:hint="Username" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailTIL"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/grid_2x"
-                android:layout_below="@id/usernameTIL">
+                android:layout_below="@id/usernameTIL"
+                android:paddingBottom="@dimen/grid_2x">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"/>
+                    android:hint="Email" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -62,9 +114,9 @@
                 android:layout_height="@dimen/standard_height"
                 android:layout_below="@id/emailTIL"
                 android:layout_marginBottom="@dimen/grid_2x"
+                android:backgroundTint="@color/teal_700"
                 android:text="Apply Changes"
-                android:textAllCaps="false"
-                android:backgroundTint="@color/teal_700"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/signoutButton"
@@ -72,10 +124,10 @@
                 android:layout_height="@dimen/standard_height"
                 android:layout_below="@id/applyButton"
                 android:layout_marginBottom="@dimen/grid_2x"
-                android:text="Sign Out"
                 android:backgroundTint="#E8F4F3"
-                android:textColor="@color/ipsit_green"
-                android:textAllCaps="false" />
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="@color/ipsit_green" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -83,15 +135,15 @@
         android:id="@+id/profileProgressLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:background="@color/transparent_grey"
         android:elevation="5dp"
-        android:visibility="gone"
-        android:background="@color/transparent_grey">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ProgressBar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

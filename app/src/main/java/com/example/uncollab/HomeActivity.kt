@@ -16,12 +16,13 @@ import com.example.uncollab.activites.ProfileActivity
 import com.example.uncollab.fragments.HomeFragment
 import com.example.uncollab.fragments.MyActivityFragment
 import com.example.uncollab.fragments.PostFragment
+import com.example.uncollab.listeners.HomeCallback
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomeCallback {
 
     private var sectionsPagerAdapter: SectionsPagerAdapter? = null
 
@@ -94,6 +95,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+
     private fun populate() {
         homeProgressLayout.visibility = View.VISIBLE
         fireBaseDB.collection(DATA_USERS).document(userID!!).get()
@@ -126,5 +128,13 @@ class HomeActivity : AppCompatActivity() {
                 else -> homeFragment
             }
         }
+    }
+
+    override fun onUserUpdated() {
+        populate()
+    }
+
+    override fun onRefresh() {
+        currentFragment.updateList()
     }
 }

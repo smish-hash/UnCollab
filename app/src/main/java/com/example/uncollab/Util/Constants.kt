@@ -16,4 +16,4 @@ val REQUEST_CODE_PHOTO = 0
 val DATA_POSTS = "Posts"
 val DATA_POST_USER_IDS = "userIds"
 
-val DATA_POST_IMAGES = "TweetImages"
+val DATA_POST_IMAGES = "PostImages"

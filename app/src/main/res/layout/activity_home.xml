@@ -10,7 +10,7 @@
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/design_default_color_primary"
+        android:backgroundTint="@color/faded_green"
         android:elevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +46,9 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.tabs.TabLayout
+        android:elevation="5dp"
+        android:layout_margin="3dp"
+        android:background="@color/faded_green"
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="@dimen/standard_height"
