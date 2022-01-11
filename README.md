@@ -43,5 +43,6 @@ Thanks goes to these wonderful people in helping in making this project come ali
   <tr>
     <td align="center"><a href="https://github.com/shreykpatnaik"><img src="https://avatars.githubusercontent.com/u/13034761?v=4" width="70px;" alt=""/><br /><sub><b>Shrey Patnaik</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/Chinmay0896"><img src="https://avatars.githubusercontent.com/u/72143024?v=4" width="70px;" alt=""/><br /><sub><b>Chinmay Kumar Pal</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/ipii28"><img src="https://avatars.githubusercontent.com/u/68012111?v=4" width="70px;" alt=""/><br /><sub><b>Ipsit Nayak</b></sub></a><br /></td>
   </tr>
   
