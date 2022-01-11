@@ -34,7 +34,7 @@ This app was made to make college lives easier. Users could add posts and collab
 <br />
 <br />
 
-### Contributors ✨ ###
+### Collaborators ✨ ###
 
 Thanks goes to these wonderful people in helping in making this project come alive
 
