@@ -1,9 +1,8 @@
 # UnCollab 
-
 <img width="100" alt="sampleimages" src="https://github.com/smish-hash/UnCollab/blob/master/app/src/main/res/drawable/uncollab.jpeg">
-
 A part of <a href="https://www.startupgrind.com/events/details/startup-grind-bhubaneswar-presents-global-innovation-drive-10/" target="blank">Global Innovation Drive 1.0</a>
-
+<br />
+<br />
 <b> Problem Statement: </b>
 
 To create a solution that can help us overcome the technological, physical, and psychological barriers that prevent humans from forming meaningful connections with others.
@@ -31,3 +30,18 @@ This app was made to make college lives easier. Users could add posts and collab
 - MVVM : Use of Modern Android Development using MVVM.
 - Firebase : The backbone of the application based on which the data was saved and created.
 
+
+<br />
+<br />
+
+### Contributors ✨ ###
+
+Thanks goes to these wonderful people in helping in making this project come alive
+
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/shreykpatnaik"><img src="https://avatars.githubusercontent.com/u/13034761?v=4" width="70px;" alt=""/><br /><sub><b>Shrey Patnaik</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/Chinmay0896"><img src="https://avatars.githubusercontent.com/u/72143024?v=4" width="70px;" alt=""/><br /><sub><b>Chinmay Kumar Pal</b></sub></a><br /></td>
+  </tr>
+  
